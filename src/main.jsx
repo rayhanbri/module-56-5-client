@@ -11,6 +11,7 @@ import MainLayout from './layout/MainLayout.jsx';
 import Home from './Component/Home.jsx';
 import Addcoffe from './Component/Addcoffe.jsx';
 import UpdateCoffe from './Component/UpdateCoffe.jsx';
+import CoffeeDetails from './Component/CoffeeDetails.jsx';
 
 
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
     path:'/updatecoffee',
     Component:UpdateCoffe,
   },
+  {
+    path:'/coffees/:id',
+    Component:CoffeeDetails
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(

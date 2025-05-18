@@ -33,6 +33,8 @@ const Addcoffe = () => {
                         title: 'Success!',
                         text: 'Coffee added successfully!',
                     });
+
+                    // form.reset()
                 }
             })
         // data eita por nodemon e dhelhabhe 
@@ -79,8 +81,8 @@ const Addcoffe = () => {
                     {/* Category field  */}
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
 
-                        <label className="label">Category</label>
-                        <input type="text" name='Category' className="input w-full" placeholder="Enter coffee category" />
+                        <label className="label">Price</label>
+                        <input type="text" name='price' className="input w-full" placeholder="Enter coffee price" />
                     </fieldset>
 
                     {/* details field  */}

@@ -5,6 +5,11 @@ const Addcoffe = () => {
         e.preventDefault()
         
         const form = e.target;
+        const formdata = new FormData(form);
+        // console.log(formdata.entries())
+        const coffeData = Object.fromEntries(formdata.entries());
+        console.log(coffeData)
+        
         console.log('wow')
     }
     return (
@@ -26,8 +31,8 @@ const Addcoffe = () => {
 
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
 
-                        <label className="label">Chef</label>
-                        <input type="text" className="input" placeholder="Enter coffee chef" />
+                        <label className="label">Quantity</label>
+                        <input type="text" name='quantity' className="input" placeholder="Enter coffee quantity" />
                     </fieldset>
 
                     {/* Supplier filed  */}
@@ -35,7 +40,7 @@ const Addcoffe = () => {
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
 
                         <label className="label">Supplier</label>
-                        <input type="text" name='name' className="input w-full" placeholder="Enter coffee supplier" />
+                        <input type="text" name='Supplier' className="input w-full" placeholder="Enter coffee supplier" />
                     </fieldset>
 
                     {/* TAste field  */}
@@ -43,28 +48,28 @@ const Addcoffe = () => {
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
 
                         <label className="label">Taste</label>
-                        <input type="text" className="input" placeholder="Enter coffee taste" />
+                        <input type="text" name='Taste' className="input" placeholder="Enter coffee taste" />
                     </fieldset>
 
                     {/* Category field  */}
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
 
                         <label className="label">Category</label>
-                        <input type="text" name='name' className="input w-full" placeholder="Enter coffee category" />
+                        <input type="text" name='Category' className="input w-full" placeholder="Enter coffee category" />
                     </fieldset>
 
                     {/* details field  */}
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
 
                         <label className="label">Details</label>
-                        <input type="text" className="input" placeholder="Enter coffee details" />
+                        <input type="text" name='Details' className="input" placeholder="Enter coffee details" />
                     </fieldset>
                 </div>
                 {/* photo url field  */}
                 <fieldset className="fieldset bg-base-200 border-base-300 rounded-box my-3 w-full  border p-4">
 
                     <label className="label">Photo</label>
-                    <input type="text" className="input w-full" placeholder="Enter photo URL" />
+                    <input type="text" name='Photo'  className="input w-full" placeholder="Enter photo URL" />
                 </fieldset>
 
                 <input type="submit"  className='btn w-full bg-[#D2B48C]' value="Add Coffee" />

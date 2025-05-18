@@ -1,31 +1,40 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
 const Addcoffe = () => {
-    const handleAddCoffee= e =>{
+    const handleAddCoffee = e => {
         e.preventDefault()
-        
+
         const form = e.target;
         const formdata = new FormData(form);
         // console.log(formdata.entries())
         const newCoffee = Object.fromEntries(formdata.entries());
         console.log(newCoffee)
-        
+
         // console.log('wow')
 
         // send coffe data to server 
         // 1.aghe backend e data url banai asi jai 
 
-        fetch('http://localhost:3000/coffees',{
-            method:"POST",
-            headers:{
-                'content-type':'application/json'
+        fetch('http://localhost:3000/coffees', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
             },
-            body:JSON.stringify(newCoffee)
+            body: JSON.stringify(newCoffee)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log('after posting' , data)
-        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log('after posting' , data)
+                if (data.insertedId) {
+                    // console.log('added sucessfully')
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: 'Coffee added successfully!',
+                    });
+                }
+            })
         // data eita por nodemon e dhelhabhe 
     }
     return (
@@ -85,10 +94,10 @@ const Addcoffe = () => {
                 <fieldset className="fieldset bg-base-200 border-base-300 rounded-box my-3 w-full  border p-4">
 
                     <label className="label">Photo</label>
-                    <input type="text" name='Photo'  className="input w-full" placeholder="Enter photo URL" />
+                    <input type="text" name='Photo' className="input w-full" placeholder="Enter photo URL" />
                 </fieldset>
 
-                <input type="submit"  className='btn w-full bg-[#D2B48C]' value="Add Coffee" />
+                <input type="submit" className='btn w-full bg-[#D2B48C]' value="Add Coffee" />
 
 
 

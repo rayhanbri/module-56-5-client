@@ -7,10 +7,26 @@ const Addcoffe = () => {
         const form = e.target;
         const formdata = new FormData(form);
         // console.log(formdata.entries())
-        const coffeData = Object.fromEntries(formdata.entries());
-        console.log(coffeData)
+        const newCoffee = Object.fromEntries(formdata.entries());
+        console.log(newCoffee)
         
-        console.log('wow')
+        // console.log('wow')
+
+        // send coffe data to server 
+        // 1.aghe backend e data url banai asi jai 
+
+        fetch('http://localhost:3000/coffees',{
+            method:"POST",
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(newCoffee)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log('after posting' , data)
+        })
+        // data eita por nodemon e dhelhabhe 
     }
     return (
         <div className='p-24'>

@@ -7,9 +7,9 @@ const Home = () => {
     // console.log(coffees)
     return (
         <div>
-             <div>
+             <div className='grid grid-cols-1 gap-5 md:grid-cols-2'>
                 {
-                    coffees.map(coffee => <CoffeeCard key={coffee._id} coffees={coffees}></CoffeeCard>)
+                    coffees.map(coffee => <CoffeeCard key={coffee._id} coffee={coffee}></CoffeeCard>)
                 }
              </div>
         </div>

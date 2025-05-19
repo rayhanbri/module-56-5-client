@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { use } from 'react';
+import { AuthContext } from '../Context/AuthContext';
 
 const SignUP = () => {
+    // ekto test korchi kaj korche ki na 
+
+    const {user}= use(AuthContext)
+
+    console.log(user)
     return (
        <div className="hero bg-base-200 min-h-screen">
   <div className="hero-content flex-col lg:flex-row-reverse">

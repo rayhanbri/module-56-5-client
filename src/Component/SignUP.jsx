@@ -15,16 +15,28 @@ const SignUP = () => {
         const form = e.target;
         const formData = new FormData(form)
 
-        const { email, password, ...userProfile } = Object.fromEntries(formData.entries())
+        const { email, password, ...rest } = Object.fromEntries(formData.entries())
+
+
 
         // const email = formData.get('email')
         // const password = formData.get('password')
-        console.log(email, password, userProfile)
+        // console.log(email, password, userProfile)
 
         // create  user in firebase 
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
+
+                // bhul kore email patathe bhule gechi tai abar patacci 
+                // aro extra information patabo 
+
+                const userProfile = {
+                    email,
+                    ...rest,
+                    creationTime : result.user.metadata.creationTime,
+                    lastSignInTime : result.user.metadata.lastSignInTime,
+                }
                 // save profile in data base 
                 fetch('http://localhost:3000/users', {
                     method: "POST",

@@ -13,8 +13,27 @@ const SignIn = () => {
 
         // data send in firebase 
         signIn(email,password)
-        .then(data => {
-            console.log(data.user)
+        .then(result=> {
+            console.log(result.user)
+
+            const signInInfo = {
+                email,
+                // when use lomba line use chain 
+                lastSignInTime:result.user?.metadata?.lastSignInTime
+            }
+
+            // update last sign in in database 
+            .fetch('http://localhost:3000/users',{
+                method:'PATCH',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(signInInfo)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log('after update',data)
+            })
         })
         .catch(error => {
             console.log(error)

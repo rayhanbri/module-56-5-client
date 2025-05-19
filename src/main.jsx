@@ -12,6 +12,8 @@ import Home from './Component/Home.jsx';
 import Addcoffe from './Component/Addcoffe.jsx';
 import UpdateCoffe from './Component/UpdateCoffe.jsx';
 import CoffeeDetails from './Component/CoffeeDetails.jsx';
+import SignUP from './Component/SignUP.jsx';
+import SignIn from './Component/SignIn.jsx';
 
 
 
@@ -39,6 +41,14 @@ const router = createBrowserRouter([
   {
     path:'/coffees/:id',
     Component:CoffeeDetails
+  },
+  {
+    path:'/signup',
+    Component:SignUP
+  },
+  {
+    path:'/signin',
+    Component:SignIn
   }
 ]);
 

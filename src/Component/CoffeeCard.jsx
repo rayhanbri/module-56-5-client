@@ -26,7 +26,7 @@ const CoffeeCard = ({ coffee,coffees,setcoffees }) => {
                 // jai url banai asi kemon server theke 
 
 
-                fetch(`http://localhost:3000/coffees/${_id}`,{
+                fetch(`https://module-56-server-pink.vercel.app/coffees/${_id}`,{
                     method:'DELETE'
                 })
                 .then(res => res.json())

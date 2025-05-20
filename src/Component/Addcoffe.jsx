@@ -16,7 +16,7 @@ const Addcoffe = () => {
         // send coffe data to server 
         // 1.aghe backend e data url banai asi jai 
 
-        fetch('http://localhost:3000/coffees', {
+        fetch('https://module-56-server-pink.vercel.app/coffees', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

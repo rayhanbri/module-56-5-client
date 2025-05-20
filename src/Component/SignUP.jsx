@@ -38,7 +38,7 @@ const SignUP = () => {
                     lastSignInTime : result.user.metadata.lastSignInTime,
                 }
                 // save profile in data base 
-                fetch('http://localhost:3000/users', {
+                fetch('https://module-56-server-pink.vercel.app/users', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'

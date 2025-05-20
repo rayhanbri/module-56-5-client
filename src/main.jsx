@@ -22,48 +22,49 @@ import Users from './Component/Users.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    Component:MainLayout,
-    children:[
-      {index:true, 
-        loader:() => fetch('http://localhost:3000/coffees'),
-        Component:Home,
+    Component: MainLayout,
+    children: [
+      {
+        index: true,
+        loader: () => fetch('https://module-56-server-pink.vercel.app/coffees'),
+        Component: Home,
       }
     ]
   },
   {
-    path:'/addcoffee',
-    Component:Addcoffe,
+    path: '/addcoffee',
+    Component: Addcoffe,
   },
   {
     // ei id tah params e jabe er por okhane boshe jabe 
-    path:'/updatecoffee/:id',
-    loader:({params}) => fetch(`http://localhost:3000/coffees/${params.id}`),
-    Component:UpdateCoffe,
+    path: '/updatecoffee/:id',
+    loader: ({ params }) => fetch(`https://module-56-server-pink.vercel.app/coffees/${params.id}`),
+    Component: UpdateCoffe,
   },
   {
-    path:'/coffees/:id',
-    Component:CoffeeDetails
+    path: '/coffees/:id',
+    Component: CoffeeDetails
   },
   {
-    path:'/signup',
-    Component:SignUP
+    path: '/signup',
+    Component: SignUP
   },
   {
-    path:'/signin',
-    Component:SignIn
+    path: '/signin',
+    Component: SignIn
   },
   {
-    path:'/users',
-    loader:() => fetch('http://localhost:3000/users'),
-    Component:Users
+    path: '/users',
+    loader: () => fetch('https://module-56-server-pink.vercel.app/users'),
+    Component: Users
 
   }
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     <AuthProvider>
+    <AuthProvider>
       <RouterProvider router={router} />
-     </AuthProvider>
+    </AuthProvider>
   </StrictMode>,
 )

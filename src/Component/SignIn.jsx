@@ -23,7 +23,7 @@ const SignIn = () => {
             }
 
             // update last sign in in database 
-            fetch('http://localhost:3000/users',{
+            fetch('https://module-56-server-pink.vercel.app/users',{
                 method:'PATCH',
                 headers:{
                     'content-type':'application/json'

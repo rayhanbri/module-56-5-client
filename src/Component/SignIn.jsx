@@ -14,7 +14,7 @@ const SignIn = () => {
         // data send in firebase 
         signIn(email,password)
         .then(result=> {
-            console.log(result.user)
+            console.log(result.user);
 
             const signInInfo = {
                 email,
@@ -23,7 +23,7 @@ const SignIn = () => {
             }
 
             // update last sign in in database 
-            .fetch('http://localhost:3000/users',{
+            fetch('http://localhost:3000/users',{
                 method:'PATCH',
                 headers:{
                     'content-type':'application/json'
@@ -33,11 +33,11 @@ const SignIn = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('after update',data)
-            })
+            });
         })
         .catch(error => {
             console.log(error)
-        })
+        });
     }
     return (
           <div className="hero bg-base-200 min-h-screen">
